@@ -20,7 +20,7 @@ public class CheckoutTest {
     @Test
     public void testApples() throws Exception {
         List<Item> items = Arrays.asList(Item.APPLE, Item.APPLE, Item.APPLE);
-        assertEquals(new BigDecimal("1.8"), Checkout.total(items));
+        assertEquals(new BigDecimal("1.2"), Checkout.total(items));
     }
 
     @Test
@@ -32,12 +32,12 @@ public class CheckoutTest {
     @Test
     public void testOranges() throws Exception {
         List<Item> items = Arrays.asList(Item.ORANGE, Item.ORANGE, Item.ORANGE);
-        assertEquals(new BigDecimal("0.75"), Checkout.total(items));
+        assertEquals(new BigDecimal("0.50"), Checkout.total(items));
     }
 
     @Test
     public void testApplesAndOranges() throws Exception {
         List<Item> items = Arrays.asList(Item.ORANGE, Item.APPLE, Item.ORANGE, Item.APPLE, Item.ORANGE, Item.APPLE);
-        assertEquals(new BigDecimal("2.55"), Checkout.total(items));
+        assertEquals(new BigDecimal("1.70"), Checkout.total(items));
     }
 }
