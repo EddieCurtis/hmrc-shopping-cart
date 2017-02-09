@@ -19,7 +19,9 @@ public class Checkout {
 
         // Multiply the count of each item by its cost.
         for (Map.Entry<Item, Long> entry : groupedMap.entrySet()) {
-            BigDecimal totalForItem = BigDecimal.valueOf(entry.getValue()).multiply(entry.getKey().cost);
+            // Calculate the number of free items, round down.
+            int free = (int) (entry.getValue() / entry.getKey().freeDivisor);
+            BigDecimal totalForItem = BigDecimal.valueOf(entry.getValue() - free).multiply(entry.getKey().cost);
             total = total.add(totalForItem);
         }
 
